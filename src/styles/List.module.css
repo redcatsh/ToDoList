@@ -1,5 +1,7 @@
 .wrapper {
   flex: 1;
-  padding: 16px;
+  padding: 8px 0;
   overflow-y: auto;
+  border-top: 1px solid #222;
+  z-index: 2;
 }

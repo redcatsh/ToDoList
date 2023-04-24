@@ -1,0 +1,24 @@
+.wrapper {
+  display: flex;
+  z-index: 2;
+}
+
+.wrapper input {
+  flex: 1;
+  border-top: 1px solid #222;
+  border-bottom: none;
+  border-right: none;
+  border-left: none;
+  padding: 10px;
+  outline: none;
+}
+
+.wrapper button {
+  background-color: #e49b5a;
+  border-top: 1px solid #222;
+  border-right: none;
+  border-bottom: none;
+  border-left: 1px solid #222;
+  width: 55px;
+  cursor: pointer;
+}
