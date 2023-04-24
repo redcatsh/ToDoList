@@ -1,28 +1,49 @@
-import React from "react";
-import useListItem from "../hooks/use-listItem";
+import React, { useState } from "react";
 import styles from "../styles/Item.module.css";
 import { FaTrashAlt } from "react-icons/fa";
 
-export default function Item() {
-  const [loading, error, listItem] = useListItem();
+import styled, { css } from "styled-components";
+import { useTodoDispatch } from "../context/TodoContext";
 
+const ListItem = styled.div`
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #222;
+  ${(props) =>
+    props.done &&
+    css`
+      label {
+        text-decoration: line-through;
+        color: #222;
+      }
+    `}
+`;
+
+export default function Item({ id, contents, done }) {
+  const [isChecked, setIsChecked] = useState(done);
+  const dispatch = useTodoDispatch();
+  const handleToggle = () => {
+    dispatch({ type: "TOGGLE", id });
+    setIsChecked((prev) => !prev);
+  };
   return (
     <>
-      {error && `${error}`}
-      {loading && <p>loading...</p>}
-      {listItem &&
-        listItem.map((item) => (
-          <div className={styles.item} key={item.id}>
-            <div>
-              <input type="checkbox" id="item" />
-              <label htmlFor="item">{item.contents}</label>
-            </div>
+      <ListItem className={styles.item} done={done}>
+        <div>
+          <input
+            type="checkbox"
+            id={id}
+            onChange={handleToggle}
+            checked={isChecked}
+          />
+          <label htmlFor={id}>{contents}</label>
+        </div>
 
-            <div>
-              <FaTrashAlt />
-            </div>
-          </div>
-        ))}
+        <div>
+          <FaTrashAlt />
+        </div>
+      </ListItem>
     </>
   );
 }
