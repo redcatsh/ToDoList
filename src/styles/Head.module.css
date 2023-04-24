@@ -1,0 +1,25 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.date {
+  font-family: "Poppins";
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #f2f2f2;
+}
+
+.bottom button {
+  font-family: "Poppins";
+  text-transform: uppercase;
+}

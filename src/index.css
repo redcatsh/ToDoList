@@ -110,7 +110,7 @@ section {
 }
 body {
   line-height: 1;
-  background-color: #4d4558;
+  background-color: #d0b9a4;
   font-family: "Noto Sans KR";
   display: flex;
   flex-direction: column;
@@ -142,7 +142,6 @@ button {
   background-color: transparent;
 }
 
-input,
 textarea,
 button {
   -webkit-appearance: none;
