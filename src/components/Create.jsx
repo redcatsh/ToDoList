@@ -38,7 +38,7 @@ export default function Create() {
           value={value}
           onChange={handleChange}
         />
-        <button type="submit">Add</button>
+        <button type="submit">ADD</button>
       </form>
     </div>
   );

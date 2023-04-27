@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useReducer, useRef } from "react";
+import React, {
+  createContext,
+  useContext,
+  useReducer,
+  useRef,
+  useState,
+} from "react";
 
 export const initialTodos = [
   {
@@ -25,6 +31,7 @@ export default function todoReducer(state, action) {
   }
 }
 
+export const DarkModeContext = createContext();
 export const TodoStateContext = createContext();
 export const TodoDispatchContext = createContext();
 export const TodoNextIdContext = createContext();
@@ -32,19 +39,34 @@ export const TodoNextIdContext = createContext();
 export function TodoProvider({ children }) {
   const [state, dispatch] = useReducer(todoReducer, initialTodos);
   const nextId = useRef(1);
+  const [darkMode, setDarkMode] = useState(false);
+  const toggleDarkMode = () => {
+    setDarkMode((mode) => !mode);
+  };
   return (
-    <TodoStateContext.Provider value={state}>
-      <TodoDispatchContext.Provider value={dispatch}>
-        <TodoNextIdContext.Provider value={nextId}>
-          {children}
-        </TodoNextIdContext.Provider>
-      </TodoDispatchContext.Provider>
-    </TodoStateContext.Provider>
+    <DarkModeContext.Provider value={{ darkMode, toggleDarkMode }}>
+      <TodoStateContext.Provider value={state}>
+        <TodoDispatchContext.Provider value={dispatch}>
+          <TodoNextIdContext.Provider value={nextId}>
+            {children}
+          </TodoNextIdContext.Provider>
+        </TodoDispatchContext.Provider>
+      </TodoStateContext.Provider>
+    </DarkModeContext.Provider>
   );
+}
+
+export function useDarkMode() {
+  const context = useContext(DarkModeContext);
+  if (!context) {
+    throw Error("Cannot find TodoProvider");
+  }
+  return context;
 }
 
 export function useTodoState() {
   const context = useContext(TodoStateContext);
+
   if (!context) {
     throw Error("Cannot find TodoProvider");
   }

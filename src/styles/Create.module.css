@@ -18,6 +18,11 @@
   outline: none;
 }
 
+.wrapper input::placeholder {
+  font-family: "Poppins";
+  text-transform: uppercase;
+}
+
 .wrapper button {
   background-color: #e49b5a;
   border-top: 1px solid #222;
@@ -26,4 +31,5 @@
   border-left: 1px solid #222;
   width: 55px;
   cursor: pointer;
+  font-family: "Poppins";
 }

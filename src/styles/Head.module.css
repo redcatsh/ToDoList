@@ -12,6 +12,7 @@
 
 .date {
   font-family: "Poppins";
+  cursor: default;
 }
 
 .bottom {
@@ -25,4 +26,8 @@
 .bottom button {
   font-family: "Poppins";
   text-transform: uppercase;
+}
+
+.mode {
+  z-index: 1;
 }
