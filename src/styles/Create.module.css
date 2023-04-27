@@ -25,6 +25,7 @@
 
 .wrapper button {
   background-color: #e49b5a;
+  transition: all 0.3s;
   border-top: 1px solid #222;
   border-right: none;
   border-bottom: none;

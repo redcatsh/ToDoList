@@ -110,12 +110,15 @@ section {
 }
 body {
   line-height: 1;
-  background-color: #d0b9a4;
+  background: linear-gradient(45deg, #e9d9af, #b9c5e8);
   font-family: "Noto Sans KR";
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100vh;
+  background: url(../public/clouds.png), no-repeat, center;
+  background-size: contain;
+  backdrop-filter: sepia(0.1);
 }
 ol,
 ul {

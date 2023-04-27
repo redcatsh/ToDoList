@@ -8,6 +8,7 @@ const Wrapper = styled.div`
     props.darkMode &&
     css`
       background-color: #637299;
+      transition: all 0.3s;
     `}
 `;
 export default function Template({ children }) {

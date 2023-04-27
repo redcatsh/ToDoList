@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../styles/Head.module.css";
-import { MdSunny } from "react-icons/md";
-import { BsFillMoonFill } from "react-icons/bs";
+// import { MdSunny } from "react-icons/md";
+// import { BsFillMoonFill } from "react-icons/bs";
 import { useDarkMode } from "../context/TodoContext";
 import styled, { css } from "styled-components";
 import "@theme-toggles/react/css/Expand.css";
@@ -11,7 +11,8 @@ const Filter = styled.div`
   ${(props) =>
     props.darkMode &&
     css`
-      background-color: #c3cce6;
+      background-color: #e6acc1;
+      transition: all 0.3s;
     `}
 `;
 
