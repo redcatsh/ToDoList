@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import styles from "../styles/Create.module.css";
-import {
-  initialTodos,
-  useTodoDispatch,
-  useTodoNextId,
-} from "../context/TodoContext";
+import { useTodoDispatch, useTodoNextId } from "../context/TodoContext";
 
 export default function Create() {
   const [value, setValue] = useState("");
