@@ -10,7 +10,7 @@ const ListItem = styled.div`
   justify-content: space-between;
   border-bottom: 1px solid #222;
   ${(props) =>
-    props.done &&
+    props.done === true &&
     css`
       label {
         text-decoration: line-through;
@@ -19,10 +19,10 @@ const ListItem = styled.div`
     `}
 `;
 
-export default function Item({ id, contents, done }) {
+export default function Item({ id, contents, done, status }) {
   const [isChecked, setIsChecked] = useState(done);
   const dispatch = useTodoDispatch();
-  const handleToggle = () => {
+  const handleToggle = (e) => {
     dispatch({ type: "TOGGLE", id });
     setIsChecked((prev) => !prev);
   };
@@ -32,7 +32,7 @@ export default function Item({ id, contents, done }) {
 
   return (
     <>
-      <ListItem className={styles.item} done={done}>
+      <ListItem className={styles.item} done={done} status={status}>
         <div>
           <input
             type="checkbox"

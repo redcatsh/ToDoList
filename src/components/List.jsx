@@ -16,6 +16,7 @@ export default function List({ filter }) {
           id={todo.id}
           contents={todo.contents}
           done={todo.done}
+          status={todo.status}
         />
       ))}
     </div>
@@ -27,7 +28,7 @@ function getFilteredItems(todos, filter) {
     return todos;
   } else {
     console.log(filter);
-    console.log(todos.filter((todo) => String(todo.done) === filter));
-    return todos.filter((todo) => String(todo.done) === filter);
+    console.log(todos.filter((todo) => todo.status === filter));
+    return todos.filter((todo) => todo.status === filter);
   }
 }

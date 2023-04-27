@@ -11,6 +11,7 @@ export const initialTodos = [
     id: 0,
     contents: "투두 리스트 작성하기!",
     done: false,
+    status: "active",
   },
 ];
 
@@ -22,7 +23,13 @@ export default function todoReducer(state, action) {
 
     case "TOGGLE":
       return state.map((todo) =>
-        todo.id === action.id ? { ...todo, done: !todo.done } : todo
+        todo.id === action.id
+          ? {
+              ...todo,
+              done: !todo.done,
+              status: todo.done === true ? "active" : "completed",
+            }
+          : todo
       );
     case "REMOVE":
       return state.filter((todo) => todo.id !== action.id);

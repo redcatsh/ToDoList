@@ -30,6 +30,7 @@ export default function Create() {
         id: nextId.current,
         contents: value,
         done: false,
+        status: "active",
       },
     });
     setValue("");

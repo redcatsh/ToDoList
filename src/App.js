@@ -5,7 +5,7 @@ import List from "./components/List";
 import Template from "./components/Template";
 import { TodoProvider } from "./context/TodoContext";
 
-const filters = ["all", "false", "true"];
+const filters = ["all", "active", "completed"];
 
 function App() {
   const [filter, setFilter] = useState(filters[0]);
