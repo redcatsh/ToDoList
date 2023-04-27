@@ -1,7 +1,5 @@
 import React from "react";
 import styles from "../styles/Head.module.css";
-// import { MdSunny } from "react-icons/md";
-// import { BsFillMoonFill } from "react-icons/bs";
 import { useDarkMode } from "../context/TodoContext";
 import styled, { css } from "styled-components";
 import "@theme-toggles/react/css/Expand.css";
@@ -14,6 +12,11 @@ const Filter = styled.div`
       background-color: #e6acc1;
       transition: all 0.3s;
     `}
+  & > ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
 `;
 
 const ModeIcon = styled(Expand)`
@@ -23,22 +26,24 @@ const ModeIcon = styled(Expand)`
   }
 `;
 
-export default function Head() {
+export default function Head({ filters, filter, onFilterChange }) {
   const { darkMode, toggleDarkMode } = useDarkMode();
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.top}>
         <div className={styles.mode} onClick={toggleDarkMode}>
-          {/* {darkMode ? <BsFillMoonFill /> : <MdSunny />} */}
           <ModeIcon duration={750} />
         </div>
         <h5 className={styles.date}>2023.04.25</h5>
       </div>
       <Filter className={styles.bottom} darkMode={darkMode}>
-        <button>All</button>
-        <button>Active</button>
-        <button>Completed</button>
+        <ul>
+          {filters.map((value, index) => (
+            <li key={index}>
+              <button onClick={() => onFilterChange(value)}>{value}</button>
+            </li>
+          ))}
+        </ul>
       </Filter>
     </div>
   );

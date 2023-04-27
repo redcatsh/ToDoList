@@ -26,6 +26,7 @@ export default function todoReducer(state, action) {
       );
     case "REMOVE":
       return state.filter((todo) => todo.id !== action.id);
+
     default:
       throw Error(`알 수 없는 액션 타입: ${action.type}`);
   }

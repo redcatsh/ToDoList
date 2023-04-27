@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styles from "../styles/Item.module.css";
 import { FaTrashAlt } from "react-icons/fa";
-
 import styled, { css } from "styled-components";
 import { useTodoDispatch } from "../context/TodoContext";
 
@@ -30,6 +29,7 @@ export default function Item({ id, contents, done }) {
   const handleDelete = () => {
     dispatch({ type: "REMOVE", id });
   };
+
   return (
     <>
       <ListItem className={styles.item} done={done}>
