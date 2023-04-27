@@ -27,6 +27,9 @@ export default function Item({ id, contents, done }) {
     dispatch({ type: "TOGGLE", id });
     setIsChecked((prev) => !prev);
   };
+  const handleDelete = () => {
+    dispatch({ type: "REMOVE", id });
+  };
   return (
     <>
       <ListItem className={styles.item} done={done}>
@@ -41,7 +44,7 @@ export default function Item({ id, contents, done }) {
         </div>
 
         <div>
-          <FaTrashAlt />
+          <FaTrashAlt onClick={handleDelete} />
         </div>
       </ListItem>
     </>
