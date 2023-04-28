@@ -46,22 +46,31 @@ export const TodoDispatchContext = createContext();
 export const TodoNextIdContext = createContext();
 
 export function TodoProvider({ children }) {
-  // const [state, dispatch] = useReducer(todoReducer, initialTodos);
-
-  const KEY = "todos";
+  // 데이터 localStorage에 저장
+  const KEY = "todos"; // Local Storage에 저장될 key 변수 할당
   const [state, dispatch] = useReducer(todoReducer, [], () => {
-    const todos = JSON.parse(localStorage.getItem(KEY));
+    const todos = JSON.parse(localStorage.getItem(KEY)); // JSON.parse()해주면 문자 데이터가 js에서 가공하여 사용할 수 있는 데이터로 변환
     return todos ? todos : [];
   });
   useEffect(() => {
-    localStorage.setItem(KEY, JSON.stringify(state));
+    localStorage.setItem(KEY, JSON.stringify(state)); // JSON.stringify()해서 문자 데이터로 저장
   }, [state]);
 
-  const nextId = useRef(1);
-  const [darkmode, setDarkmode] = useState(false);
+  const nextId = useRef(1); // 항목이 추가 될 때 id추가 할 거
+
+  // 다크모드 localStorage에 저장하기!
+  const MODE = "mode";
+  JSON.parse(localStorage.getItem(MODE));
+  const [darkmode, setDarkmode] = useState(() =>
+    JSON.parse(localStorage.getItem(MODE))
+  );
   const toggleDarkMode = () => {
     setDarkmode((mode) => !mode);
   };
+  useEffect(() => {
+    localStorage.setItem(MODE, JSON.stringify(darkmode));
+  }, [darkmode]);
+
   return (
     <DarkModeContext.Provider value={{ darkmode, toggleDarkMode }}>
       <TodoStateContext.Provider value={state}>

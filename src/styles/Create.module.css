@@ -19,7 +19,6 @@
 }
 
 .wrapper input::placeholder {
-  font-family: "Poppins";
   text-transform: uppercase;
 }
 
@@ -32,5 +31,5 @@
   border-left: 1px solid #222;
   width: 55px;
   cursor: pointer;
-  font-family: "Poppins";
+  font-size: 16px;
 }

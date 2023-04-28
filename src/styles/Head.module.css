@@ -12,11 +12,11 @@
 }
 
 .date {
-  font-family: "Poppins";
   cursor: default;
   color: #222;
   font-size: 14px;
   text-transform: uppercase;
+  font-size: 15px;
 }
 
 .bottom {
@@ -27,11 +27,11 @@
 }
 
 .filter {
-  font-family: "Poppins";
   text-transform: uppercase;
   cursor: pointer;
   position: relative;
   z-index: 0;
+  font-size: 15px;
 }
 
 .filter.selected:after {
@@ -53,7 +53,7 @@
 
 .mode svg {
   vertical-align: middle;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   transition: all 0.3s;
 }

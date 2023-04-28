@@ -2,6 +2,7 @@
   margin-left: 8px;
   color: #222222;
   cursor: pointer;
+  font-size: 18px;
 }
 
 .item:hover .delete svg {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../styles/Head.module.css";
 import { useDarkMode } from "../context/TodoContext";
 import styled, { css } from "styled-components";
@@ -36,6 +36,7 @@ const Date = styled.h5`
 
 export default function Head({ filters, filter, onFilterChange }) {
   const { darkmode, toggleDarkMode } = useDarkMode();
+  const [isToggled] = useState(true);
   return (
     <>
       <div className={styles.wrapper}>
@@ -45,7 +46,13 @@ export default function Head({ filters, filter, onFilterChange }) {
             onClick={toggleDarkMode}
             darkmode={darkmode}
           >
-            <Expand duration={750} />
+            {darkmode ? (
+              <Expand duration={750} toggled={isToggled} />
+            ) : (
+              <Expand duration={750} />
+            )}
+            {/* <Expand duration={750} />
+            <Expand duration={750} toggled={isToggled} toggle={setToggle} /> */}
           </ModeIcon>
           <Date className={styles.date} darkmode={darkmode}>
             {getDate()}
