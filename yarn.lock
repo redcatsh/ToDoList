@@ -10763,6 +10763,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-uuid@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "react-uuid@npm:2.0.0"
+  checksum: edfdd86ce5cd19da9740fae1147ed106e3090f4d9c59b4e3f0001c2dc605f63dc89e225adc5623929a8775363ab355da32adda92dd70a3bb514fff911b93da73
+  languageName: node
+  linkType: hard
+
 "react@npm:^18.2.0":
   version: 18.2.0
   resolution: "react@npm:18.2.0"
@@ -12210,6 +12217,7 @@ __metadata:
     react-icons: ^4.8.0
     react-is: ^18.2.0
     react-scripts: 5.0.1
+    react-uuid: ^2.0.0
     styled-components: ^5.3.10
     web-vitals: ^2.1.0
   languageName: unknown

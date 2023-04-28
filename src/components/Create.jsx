@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import styles from "../styles/Create.module.css";
-import { useTodoDispatch, useTodoNextId } from "../context/TodoContext";
+import { useTodoDispatch } from "../context/TodoContext";
+import uuid from "react-uuid";
 
 export default function Create() {
   const [value, setValue] = useState("");
   const dispatch = useTodoDispatch();
-  const nextId = useTodoNextId();
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -16,14 +16,13 @@ export default function Create() {
     dispatch({
       type: "CREATE",
       todo: {
-        id: nextId.current,
+        id: uuid(),
         contents: value,
         done: false,
         status: "active",
       },
     });
     setValue("");
-    nextId.current += 1;
   };
 
   return (
