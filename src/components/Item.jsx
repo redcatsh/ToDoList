@@ -27,8 +27,8 @@ const ListItem = styled.div`
         color: #f2f2f2;
         font-weight: 300;
       }
-    `}
-    ${(props) =>
+    `} 
+     ${(props) =>
     props.done === true &&
     props.darkmode &&
     css`

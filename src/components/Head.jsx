@@ -15,42 +15,39 @@ const Filter = styled.div`
 `;
 
 const ModeIcon = styled.div`
-  /* ${(props) =>
+  ${(props) =>
     props.darkmode &&
     css`
       svg {
         color: #e49b5a;
         font-weight: 300;
       }
-    `} */
+    `}
 `;
 
 const Date = styled.h5`
-  /* ${(props) =>
+  ${(props) =>
     props.darkmode &&
     css`
       color: #e49b5a;
       transition: all 0.3s;
-    `} */
+    `}
 `;
 
 export default function Head({ filters, filter, onFilterChange }) {
   const { darkmode, toggleDarkMode } = useDarkMode();
   return (
     <>
-      <div className={styles.wrapper} darkmode={darkmode}>
+      <div className={styles.wrapper}>
         <div className={styles.top}>
           <ModeIcon
             className={styles.mode}
             onClick={toggleDarkMode}
-            // darkmode={darkmode}
+            darkmode={darkmode}
           >
             <Expand duration={750} />
           </ModeIcon>
-          <Date
-            className={styles.date}
-            // darkmode={darkmode}
-          >
+          <Date className={styles.date} darkmode={darkmode}>
             {getDate()}
           </Date>
         </div>
