@@ -23,7 +23,7 @@ export default function Create() {
       },
     });
     setValue("");
-    nextId.current++;
+    nextId.current += 1;
   };
 
   return (

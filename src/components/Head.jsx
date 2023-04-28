@@ -51,8 +51,6 @@ export default function Head({ filters, filter, onFilterChange }) {
             ) : (
               <Expand duration={750} />
             )}
-            {/* <Expand duration={750} />
-            <Expand duration={750} toggled={isToggled} toggle={setToggle} /> */}
           </ModeIcon>
           <Date className={styles.date} darkmode={darkmode}>
             {getDate()}
