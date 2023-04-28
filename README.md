@@ -3,9 +3,6 @@ React로 만든 다크모드가 지원되는 투두리스트 입니다.
 컴포넌트는 템플릿, 헤더, 리스트, 리스트아이템, 입력폼 으로 나누었고
 useReducer와 Context API를 통해 상태관리를 하는 방식으로 구현하였습니다.
 
-## 링크
-<a href="https://mode-todolist.netlify.app/" target='_blank'>todolist</a>
-
 ## 구현 기능
 - 리스트 띄우기
 - 리스트 추가
