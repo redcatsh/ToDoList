@@ -55,7 +55,14 @@ export default function Head({ filters, filter, onFilterChange }) {
           <ul>
             {filters.map((value, index) => (
               <li key={index}>
-                <button onClick={() => onFilterChange(value)}>{value}</button>
+                <button
+                  className={`${styles.filter} ${
+                    filter === value && styles.selected
+                  }`}
+                  onClick={() => onFilterChange(value)}
+                >
+                  {value}
+                </button>
               </li>
             ))}
           </ul>

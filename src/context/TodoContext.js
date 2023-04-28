@@ -1,6 +1,7 @@
 import React, {
   createContext,
   useContext,
+  useEffect,
   useReducer,
   useRef,
   useState,
@@ -45,7 +46,17 @@ export const TodoDispatchContext = createContext();
 export const TodoNextIdContext = createContext();
 
 export function TodoProvider({ children }) {
-  const [state, dispatch] = useReducer(todoReducer, initialTodos);
+  // const [state, dispatch] = useReducer(todoReducer, initialTodos);
+
+  const KEY = "todos";
+  const [state, dispatch] = useReducer(todoReducer, [], () => {
+    const todos = JSON.parse(localStorage.getItem(KEY));
+    return todos ? todos : [];
+  });
+  useEffect(() => {
+    localStorage.setItem(KEY, JSON.stringify(state));
+  }, [state]);
+
   const nextId = useRef(1);
   const [darkmode, setDarkmode] = useState(false);
   const toggleDarkMode = () => {

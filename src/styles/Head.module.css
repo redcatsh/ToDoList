@@ -26,10 +26,25 @@
   padding: 10px 0;
 }
 
-.bottom button {
+.filter {
   font-family: "Poppins";
   text-transform: uppercase;
   cursor: pointer;
+  position: relative;
+  z-index: 0;
+}
+
+.filter.selected:after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  width: 100%;
+  z-index: -1;
+  height: 7px;
+  left: 0;
+  background-color: #ffffff87;
+  transform: skewX(16deg);
+  transition: all 0.3s;
 }
 
 .mode {
