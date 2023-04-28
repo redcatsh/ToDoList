@@ -7,20 +7,23 @@
 .top {
   display: flex;
   justify-content: space-between;
-  padding: 16px;
+  padding: 10px 16px;
   align-items: center;
 }
 
 .date {
   font-family: "Poppins";
   cursor: default;
+  color: #222;
+  font-size: 14px;
+  text-transform: uppercase;
 }
 
 .bottom {
   transition: all 0.3s;
   background-color: #e49b5a;
   border-top: 1px solid #222;
-  padding: 8px 0;
+  padding: 10px 0;
 }
 
 .bottom button {
@@ -31,4 +34,11 @@
 
 .mode {
   z-index: 1;
+}
+
+.mode svg {
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  transition: all 0.3s;
 }

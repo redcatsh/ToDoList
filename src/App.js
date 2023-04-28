@@ -10,13 +10,15 @@ const filters = ["all", "active", "completed"];
 function App() {
   const [filter, setFilter] = useState(filters[0]);
   return (
-    <TodoProvider>
-      <Template>
-        <Head filters={filters} filter={filter} onFilterChange={setFilter} />
-        <List filter={filter} />
-        <Create />
-      </Template>
-    </TodoProvider>
+    <>
+      <TodoProvider>
+        <Template>
+          <Head filters={filters} filter={filter} onFilterChange={setFilter} />
+          <List filter={filter} />
+          <Create />
+        </Template>
+      </TodoProvider>
+    </>
   );
 }
 

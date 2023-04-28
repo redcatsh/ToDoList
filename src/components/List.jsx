@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "../styles/List.module.css";
 import Item from "./Item";
 import { useTodoState } from "../context/TodoContext";
@@ -27,8 +27,6 @@ function getFilteredItems(todos, filter) {
   if (filter === "all") {
     return todos;
   } else {
-    console.log(filter);
-    console.log(todos.filter((todo) => todo.status === filter));
     return todos.filter((todo) => todo.status === filter);
   }
 }

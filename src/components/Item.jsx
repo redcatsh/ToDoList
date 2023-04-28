@@ -3,6 +3,7 @@ import styles from "../styles/Item.module.css";
 import { FaTrashAlt } from "react-icons/fa";
 import styled, { css } from "styled-components";
 import { useTodoDispatch } from "../context/TodoContext";
+import { useDarkMode } from "../context/TodoContext";
 
 const ListItem = styled.div`
   padding: 10px 16px;
@@ -12,9 +13,29 @@ const ListItem = styled.div`
   ${(props) =>
     props.done === true &&
     css`
-      label {
+      label,
+      svg {
         text-decoration: line-through;
-        color: #222;
+        color: #22222287 !important;
+      }
+    `}
+  ${(props) =>
+    props.darkmode &&
+    css`
+      label,
+      svg {
+        color: #f2f2f2;
+        font-weight: 300;
+      }
+    `}
+    ${(props) =>
+    props.done === true &&
+    props.darkmode &&
+    css`
+      label,
+      svg {
+        text-decoration: line-through;
+        color: #f2f2f28a !important;
       }
     `}
 `;
@@ -22,6 +43,7 @@ const ListItem = styled.div`
 export default function Item({ id, contents, done, status }) {
   const [isChecked, setIsChecked] = useState(done);
   const dispatch = useTodoDispatch();
+  const { darkmode } = useDarkMode();
   const handleToggle = (e) => {
     dispatch({ type: "TOGGLE", id });
     setIsChecked((prev) => !prev);
@@ -32,7 +54,12 @@ export default function Item({ id, contents, done, status }) {
 
   return (
     <>
-      <ListItem className={styles.item} done={done} status={status}>
+      <ListItem
+        className={styles.item}
+        done={done}
+        darkmode={darkmode}
+        status={status}
+      >
         <div>
           <input
             type="checkbox"
@@ -43,7 +70,7 @@ export default function Item({ id, contents, done, status }) {
           <label htmlFor={id}>{contents}</label>
         </div>
 
-        <div>
+        <div className={styles.delete}>
           <FaTrashAlt onClick={handleDelete} />
         </div>
       </ListItem>

@@ -47,12 +47,12 @@ export const TodoNextIdContext = createContext();
 export function TodoProvider({ children }) {
   const [state, dispatch] = useReducer(todoReducer, initialTodos);
   const nextId = useRef(1);
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkmode, setDarkmode] = useState(false);
   const toggleDarkMode = () => {
-    setDarkMode((mode) => !mode);
+    setDarkmode((mode) => !mode);
   };
   return (
-    <DarkModeContext.Provider value={{ darkMode, toggleDarkMode }}>
+    <DarkModeContext.Provider value={{ darkmode, toggleDarkMode }}>
       <TodoStateContext.Provider value={state}>
         <TodoDispatchContext.Provider value={dispatch}>
           <TodoNextIdContext.Provider value={nextId}>

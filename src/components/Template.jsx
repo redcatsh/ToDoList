@@ -4,18 +4,18 @@ import styled, { css } from "styled-components";
 import { useDarkMode } from "../context/TodoContext";
 
 const Wrapper = styled.div`
-  ${(props) =>
-    props.darkMode &&
+  /* ${(props) =>
+    props.darkmode &&
     css`
-      background-color: #637299;
+      background-color: #4b5878;
       transition: all 0.3s;
-    `}
+    `} */
 `;
 export default function Template({ children }) {
-  const { darkMode } = useDarkMode();
+  const { darkmode } = useDarkMode();
 
   return (
-    <Wrapper className={styles.template} darkMode={darkMode}>
+    <Wrapper className={styles.template} darkmode={darkmode}>
       {children}
     </Wrapper>
   );

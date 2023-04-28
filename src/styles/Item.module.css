@@ -1,7 +1,23 @@
 .item label {
   margin-left: 8px;
+  color: #222222;
+  cursor: pointer;
+}
+
+.item:hover .delete svg {
+  opacity: 1;
+}
+.item input {
+  cursor: pointer;
 }
 
 .item p {
   font-size: 15px;
+}
+
+.delete svg {
+  font-size: 12px;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.2s;
 }
