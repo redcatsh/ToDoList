@@ -13,6 +13,10 @@ export default function Create() {
 
   const handleSubmit = (e) => {
     e.preventDefault(); // 새로고침 방지
+    if (value.trim().length === 0) {
+      // 아무것도 입력하지 않았을 때,혹은 spacebar만 누르고 add 했을 때 추가 되는 것을 방지함! trim()은 텍스트 앞뒤 여백을 없애줌!
+      return;
+    }
     dispatch({
       type: "CREATE",
       todo: {
